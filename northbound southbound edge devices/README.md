@@ -32,3 +32,9 @@ Connecting edge devices to connect to a cloud service or do centralized dashboar
       
 - OT Level PLC
   - [Uses Tia Tank sample application](https://github.com/industrial-edge/miscellaneous#tank-application)
+
+  # Manual
+
+  ## OT - Level
+  Run Tia tank project on PLC SIM Advanced, or use a real PLC - Use a 1500 plc [link Tia Project](https://github.com/industrial-edge/miscellaneous#tank-application)
+
