@@ -181,14 +181,14 @@ Setup the network settings
    - user: edge
    - password: edge
    - save
-![iemqttconnector1](files/northbound-ie-mqtt-connector-1.JPG)
+![iemqttconnector4](files/Northbound-ie-mqtt-connector-1.JPG)
 4. Topic add + 
    - add: ie/#
    - permission: piblish and subscribe
    - click add
-![iemqttconnector2](files/northbound-ie-mqtt-connector-2.JPG)
+![iemqttconnector5](files/Northbound-ie-mqtt-connector-2.JPG)
 5. Set security unsecure
-![iemqttconnector3](files/northbound-ie-mqtt-connector-3.JPG)
+![iemqttconnector6](files/Northbound-ie-mqtt-connector-3.JPG)
 6. Set the Bridge configuration
    - set enable custom bridge
    - Set username and password as edge ; edge
@@ -197,7 +197,7 @@ Setup the network settings
    - set topic: ie/#
    - direction: IE MQTT Connector -> IE Databus
    - QOS 2
-![iemqttconnector3](files/northbound-ie-mqtt-connector-4.JPG)
+![iemqttconnector6](files/Northbound-ie-mqtt-connector-4.JPG)
 7. Click on Deploy
 
 ### Northbound - Flow Creator
