@@ -45,14 +45,15 @@ Connecting edge devices to connect to a cloud service or do centralized dashboar
   Give this PLC ip adress in range of the OT-South network, for example 192.168.0.10.
 
 ## Southbound - Level
-  install the required apps:
+Install the required apps
 - IE Cloud Connector 
 - Simatic s7 Connector 
 - IE Databus 
 - Flow Creator 
 
-- Give the Southbound-Device Port 2 ip adress in range of the OT-South network, for example 192.168.0.11
-- Give the Southbound-Device Port 1 ip adress in range of the South-North network, for example 192.168.1.10
+Setup the network settings
+  - Give the Southbound-Device Port 2 ip adress in range of the OT-South network, for example 192.168.0.11
+  - Give the Southbound-Device Port 1 ip adress in range of the South-North network, for example 192.168.1.10
 
 
 
