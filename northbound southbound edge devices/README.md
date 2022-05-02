@@ -2,6 +2,14 @@
 Connecting edge devices to connect to a cloud service or do centralized dashboarding.
 [Official documentation](https://github.com/industrial-edge/Shopfloor-to-Cloud-Connectivity#network-architecture)
 
+## index
+
+* [Setup](#Setup)
+* [Get started](#Get-started)
+    * [Networks](#Networks)
+    * [OT - Level](#OT---Level)
+    * [Southbound - Level](#Southbound---Level)  
+
 ## Overview
 ![Overview](files/northBoundSouthbound.jpg)
 
