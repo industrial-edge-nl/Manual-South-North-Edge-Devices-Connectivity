@@ -47,6 +47,15 @@ Connecting edge devices to connect to a cloud service or do centralized dashboar
   - OT-South network 192.168.0.x/24 range
   - South-North network 192.168.1.x/24 range
   - North-Cloud network 192.168.2.x/24 range
+  - Devices:
+    PLC: 
+    - 192.168.0.10
+    South Device: 
+    - port 1: 192.168.0.11
+    - port 2: 192.168.1.10
+    North Device:
+    - port 1: 192.168.1.11
+    - port 2: 192.168.2.10 
 
 ## OT - Level
   Run Tia tank project on PLC SIM Advanced, or use a real PLC - Use a 1500 plc [Link Tia Portal Project](https://github.com/industrial-edge/miscellaneous#tank-application)  Or use your own project.  
@@ -84,7 +93,7 @@ Setup the network settings
 5. Deploy, wait until its done
 
 ### Flow Creator
-1. open flow creator, login with edge credentials
+1. open flow creator - on edge device, login with edge credentials 
 2. add mqtt in node
 3. add server: 
     - server: ie-databus
@@ -92,11 +101,45 @@ Setup the network settings
     - security - user: edge
     - security - password: edge
     - click on save
-    - ![iedatabus2](files/southbound-ie-databus-2.JPG)
+    - ![flowcreator1](files/southbound-ie-databus-2.JPG)
 4. set topic:
     - ie/#
     - click on done.
 5. add message node and connect, then deploy.
 6. check if data is flowing in debug window.
-![iedatabus3](files/southbound-ie-databus-3.JPG)
+![flowcreator2](files/southbound-ie-databus-3.JPG)
 
+### IE Cloud Connector
+F.Y.I. - It might be better to setup the northbound device - IE MQTT Connector - first
+
+1. Open the Industrial Edge Management - Go to Data Connections - Select IE Cloud Connector
+2. we are going to add 2 topics, one for the metadata. and one for the regular data.
+   - First add the topic for the metadata: ie/m/j/simatic/v1/s7c1/dp then save
+![cloudconnector1](files/southbound-ie-CloudConnector-1.JPG)
+   - Then were going to add the topic for the data: ie/d/j/simatic/v1/s7c1/dp/r/tia_tank_sample_plc/default (The 'tia_tank_sample_plc' is the name of your device in the c7 connector)
+![cloudconnector2](files/southbound-ie-CloudConnector-2.JPG)
+2. Then we add 2 routes, one for each type of topic:
+   - data
+   - meta
+3. Then we add a cloud client, one is data
+  - click Add client Name is Data, Type is LOCAL_LAKE
+  - click on edit
+    - Host: 192.168.1.11 (North device port 1)
+    - Port: 9883 (IE MQTT Connector port)
+    - Name: edge
+    - Password: edge
+    - Advanced tab
+      - Topic for public: ie/d/j/simatic/v1/ied1:s7c1/dp/r/tia_tank_sample_plc/default (we added 'ied1:' in the path)
+![cloudconnector3](files/southbound-ie-CloudConnector-3.JPG)
+![cloudconnector4](files/southbound-ie-CloudConnector-4.JPG)
+3. Then we add a cloud client, the other one is meta
+  - click Add client Name is Data, Type is LOCAL_LAKE
+  - click on edit
+    - Host: 192.168.1.11 (North device port 1)
+    - Port: 9883 (IE MQTT Connector port)
+    - Name: edge
+    - Password: edge
+    - Advanced tab
+      - Topic for public: ie/d/j/simatic/v1/ied1:s7c1/dp/ (we added 'ied1:' in the path)
+![cloudconnector3](files/southbound-ie-CloudConnector-5.JPG)
+![cloudconnector4](files/southbound-ie-CloudConnector-6.JPG)
