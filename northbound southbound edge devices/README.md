@@ -220,13 +220,13 @@ Setup the network settings
 ### Northbound - Dataservice 
 1. Open flow creator - on edge device.
 2. Go to adapter and add adapter
-![Dataservice](files/northbound-dataservice-1.JPG)
+![Dataservice](files/Northbound-dataservice-1.JPG)
 3. Fill in fields:
    - name: southbound_Device
    - url: tcp://ie-databus:1883
    - name: edge
    - password: edge
    - metadata: ie/d/j/simatic/v1/ied1:s7c1/dp/
-   ![Dataservice2](files/northbound-dataservice-2.JPG)
+   ![Dataservice2](files/Northbound-dataservice-2.JPG)
 4. Click save
 5. and enable the new adapter, check if it is connected.
