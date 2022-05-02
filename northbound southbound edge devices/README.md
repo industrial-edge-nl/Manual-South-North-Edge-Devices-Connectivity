@@ -55,5 +55,9 @@ Setup the network settings
   - Give the Southbound-Device Port 2 ip adress in range of the OT-South network, for example 192.168.0.11
   - Give the Southbound-Device Port 1 ip adress in range of the South-North network, for example 192.168.1.10
 
+### Simatic s7 Connector
+1. Open the Industrial Edge Management - Go to Data Connections - Select the Simatic S7 connector
+![s7connector](files/southbound-s7-connector-1.JPG)
+
 
 
