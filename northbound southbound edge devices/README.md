@@ -42,7 +42,7 @@ Connecting edge devices to connect to a cloud service or do centralized dashboar
 
 ## OT - Level
   Run Tia tank project on PLC SIM Advanced, or use a real PLC - Use a 1500 plc [Link Tia Portal Project](https://github.com/industrial-edge/miscellaneous#tank-application)  Or use your own project.  
-  Give this PLC ip adress in range of the OT-South network, for example 192.168.0.10.
+  Give this PLC ip adress in range of the OT-South network, for example 192.168.0.10
 
 ## Southbound - Level
 Install the required apps
@@ -57,7 +57,15 @@ Setup the network settings
 
 ### Simatic s7 Connector
 1. Open the Industrial Edge Management - Go to Data Connections - Select the Simatic S7 connector
-![s7connector](files/southbound-s7-connector-1.JPG)
+![s7connector1](files/southbound-s7-connector-1.JPG)
+2. Launch on the Southbound device - select S7 or OPCUA (we use opcua) - add data Source 
+![s7connector2](files/southbound-s7-connector-2-add-opcua.JPG)
+3. Fill in the ip adress and port 192.168.0.10 port 4840 and save
+4. Set the settings - use username: edge and password: edge, then press save.
+![s7connector3](files/southbound-s7-connector-3-settings.JPG)
+5. A new row should be available in the list, press browse tags, all the tags should be read from the datasource. add them all.
+![s7connector3](files/southbound-s7-connector-4-browse.JPG)
+
 
 
 
