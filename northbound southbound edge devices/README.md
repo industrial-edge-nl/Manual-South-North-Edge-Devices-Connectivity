@@ -65,7 +65,30 @@ Setup the network settings
 ![s7connector3](files/southbound-s7-connector-3-settings.JPG)
 5. A new row should be available in the list, press browse tags, all the tags should be read from the datasource. add them all.
 ![s7connector3](files/southbound-s7-connector-4-browse.JPG)
+6. Deploy and start project, wait until done.
 
+### IE Databus
+1. Open the Industrial Edge Management - Go to Data Connections - Select the IE Databus
+2. Launch on the Southbound device 
+3. Add user + 
+![iedatabus1](files/southbound-ie-databus-1.JPG)
+4. Topic: ie/#, username: edge, password: edge, permission: publish and subscribe, click on add.
+5. Deploy, wait until done.
 
-
+### Flow Creator
+1. open flow creator, login with edge credentials
+2. add mqtt in node
+3. add server: 
+  - server: ie-databus
+  - port: 1883
+  - security - user: edge
+  - security - password: edge
+  - click on save
+  ![iedatabus2](files/southbound-ie-databus-2.JPG)
+4. set topic:
+  - ie/#
+  - click on done.
+5. add message node and connect, then deploy.
+6. check if data is flowing in debug window.
+![iedatabus3](files/southbound-ie-databus-3.JPG)
 
