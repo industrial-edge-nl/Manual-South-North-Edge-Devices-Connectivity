@@ -35,6 +35,24 @@ Connecting edge devices to connect to a cloud service or do centralized dashboar
 
   # Manual
 
+  ## Network
+  OT-South network 192.168.0.x/24 range
+  South-North network 192.168.1.x/24 range
+  North-Cloud network 192.168.2.x/24 range
+
   ## OT - Level
-  Run Tia tank project on PLC SIM Advanced, or use a real PLC - Use a 1500 plc [link Tia Project](https://github.com/industrial-edge/miscellaneous#tank-application)
+  Run Tia tank project on PLC SIM Advanced, or use a real PLC - Use a 1500 plc [Link Tia Portal Project](https://github.com/industrial-edge/miscellaneous#tank-application)  Or use your own project.  
+  Give this PLC ip adress in range of the OT-South network, for example 192.168.0.10.
+
+  ## Southbound - Level
+  install the required apps:
+  - IE Cloud Connector 
+  - Simatic s7 Connector 
+  - IE Databus 
+  - Flow Creator 
+
+  Give this Device Port 2 ip adress in range of the OT-South network, for example 192.168.0.11
+  Give this Device Port 1 ip adress in range of the South-North network, for example 192.168.1.10
+
+
 
