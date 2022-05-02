@@ -73,21 +73,21 @@ Setup the network settings
 3. Add user + 
 ![iedatabus1](files/southbound-ie-databus-1.JPG)
 4. Topic: ie/#, username: edge, password: edge, permission: publish and subscribe, click on add.
-5. Deploy, wait until done.
+5. Deploy, wait until its done
 
 ### Flow Creator
 1. open flow creator, login with edge credentials
 2. add mqtt in node
 3. add server: 
-  - server: ie-databus
-  - port: 1883
-  - security - user: edge
-  - security - password: edge
-  - click on save
-  ![iedatabus2](files/southbound-ie-databus-2.JPG)
+    - server: ie-databus
+    - port: 1883
+    - security - user: edge
+    - security - password: edge
+    - click on save
+    - ![iedatabus2](files/southbound-ie-databus-2.JPG)
 4. set topic:
-  - ie/#
-  - click on done.
+    - ie/#
+    - click on done.
 5. add message node and connect, then deploy.
 6. check if data is flowing in debug window.
 ![iedatabus3](files/southbound-ie-databus-3.JPG)
