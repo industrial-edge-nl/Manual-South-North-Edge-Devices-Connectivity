@@ -153,6 +153,7 @@ F.Y.I. - It might be better to setup the northbound device - IE MQTT Connector -
   - check the checkbox on topic: ie/d/j/simatic/v1/s7c1/dp
   - check the checkbox on client: meta
 ![cloudconnector8](files/southbound-ie-CloudConnector-8.JPG)
+6. Click on deploy.
 
 ## Northbound - Level
 Install the required apps
@@ -164,3 +165,68 @@ Install the required apps
 Setup the network settings
   - Give the Northbound-Device Port 2 ip adress in range of the OT-South network, for example 192.168.2.10 
   - Give the Northbound-Device Port 1 ip adress in range of the South-North network, for example 192.168.1.11
+
+### Northbound - IE Databus
+1. Open the Industrial Edge Management - Go to Data Connections - Select the IE Databus
+2. Launch on the Northbound device 
+3. Add user + 
+![iedatabus1](files/southbound-ie-databus-1.JPG)
+4. Topic: ie/#, username: edge, password: edge, permission: publish and subscribe, click on add..
+5. Deploy, wait until its done
+
+### Northbound - IE MQTT Connector 
+1. Open the Industrial Edge Management - Go to Data Connections - Select the IE MQTT Connector
+2. Launch on the Northbound device 
+3. Add user +
+   - user: edge
+   - password: edge
+   - save
+![iemqttconnector1](files/northbound-ie-mqtt-connector-1.JPG)
+4. Topic add + 
+   - add: ie/#
+   - permission: piblish and subscribe
+   - click add
+![iemqttconnector2](files/northbound-ie-mqtt-connector-2.JPG)
+5. Set security unsecure
+![iemqttconnector3](files/northbound-ie-mqtt-connector-3.JPG)
+6. Set the Bridge configuration
+   - set enable custom bridge
+   - Set username and password as edge ; edge
+   - click on connect
+   - click on add row
+   - set topic: ie/#
+   - direction: IE MQTT Connector -> IE Databus
+   - QOS 2
+![iemqttconnector3](files/northbound-ie-mqtt-connector-4.JPG)
+7. Click on Deploy
+
+### Northbound - Flow Creator
+1. open flow creator - on edge device, login with edge credentials 
+2. Add mqtt in node
+3. Add server: 
+    - server: ie-databus
+    - port: 1883
+    - security - user: edge
+    - security - password: edge
+    - click on save
+    - ![flowcreator3](files/southbound-ie-databus-2.JPG)
+4. Set topic:
+    - ie/#
+    - click on done.
+5. Add message node and connect, then deploy.
+6. Check if data is flowing in debug window from the other edge device, then the bridge is setup.
+![flowcreator4](files/southbound-ie-databus-3.JPG)
+
+### Northbound - Dataservice 
+1. Open flow creator - on edge device.
+2. Go to adapter and add adapter
+![Dataservice](files/northbound-dataservice-1.JPG)
+3. Fill in fields:
+   - name: southbound_Device
+   - url: tcp://ie-databus:1883
+   - name: edge
+   - password: edge
+   - metadata: ie/d/j/simatic/v1/ied1:s7c1/dp/
+   ![Dataservice2](files/northbound-dataservice-2.JPG)
+4. Click save
+5. and enable the new adapter, check if it is connected.
