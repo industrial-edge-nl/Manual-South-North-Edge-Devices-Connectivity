@@ -72,7 +72,7 @@ Setup the network settings
   - Give the Southbound-Device Port 2 ip adress in range of the OT-South network, for example 192.168.0.11
   - Give the Southbound-Device Port 1 ip adress in range of the South-North network, for example 192.168.1.10
 
-### Simatic s7 Connector
+### Southbound - Simatic s7 Connector
 1. Open the Industrial Edge Management - Go to Data Connections - Select the Simatic S7 connector
 ![s7connector1](files/southbound-s7-connector-1.JPG)
 2. Launch on the Southbound device - select S7 or OPCUA (we use opcua) - add data Source 
@@ -84,7 +84,7 @@ Setup the network settings
 ![s7connector3](files/southbound-s7-connector-4-browse.JPG)
 6. Deploy and start project, wait until done.
 
-### IE Databus
+### Southbound - IE Databus
 1. Open the Industrial Edge Management - Go to Data Connections - Select the IE Databus
 2. Launch on the Southbound device 
 3. Add user + 
@@ -92,7 +92,7 @@ Setup the network settings
 4. Topic: ie/#, username: edge, password: edge, permission: publish and subscribe, click on add.
 5. Deploy, wait until its done
 
-### Flow Creator
+### Southbound - Flow Creator
 1. open flow creator - on edge device, login with edge credentials 
 2. add mqtt in node
 3. add server: 
@@ -109,7 +109,7 @@ Setup the network settings
 6. check if data is flowing in debug window.
 ![flowcreator2](files/southbound-ie-databus-3.JPG)
 
-### IE Cloud Connector
+### Southbound - IE Cloud Connector
 F.Y.I. - It might be better to setup the northbound device - IE MQTT Connector - first
 
 1. Open the Industrial Edge Management - Go to Data Connections - Select IE Cloud Connector
@@ -141,5 +141,26 @@ F.Y.I. - It might be better to setup the northbound device - IE MQTT Connector -
     - Password: edge
     - Advanced tab
       - Topic for public: ie/d/j/simatic/v1/ied1:s7c1/dp/ (we added 'ied1:' in the path)
-![cloudconnector3](files/southbound-ie-CloudConnector-5.JPG)
-![cloudconnector4](files/southbound-ie-CloudConnector-6.JPG)
+![cloudconnector5](files/southbound-ie-CloudConnector-5.JPG)
+![cloudconnector6](files/southbound-ie-CloudConnector-6.JPG)
+5. Then we connect the data  row
+  - press on the route 'data', it wil become blue
+  - check the checkbox on topic: ie/d/j/simatic/v1/s7c1/dp/r/tia_tank_sample_plc/default
+  - check the checkbox on client: data
+![cloudconnector7](files/southbound-ie-CloudConnector-7.JPG)
+5. Then we connect the meta  row
+  - press on the route 'meta', it wil become blue
+  - check the checkbox on topic: ie/d/j/simatic/v1/s7c1/dp
+  - check the checkbox on client: meta
+![cloudconnector8](files/southbound-ie-CloudConnector-8.JPG)
+
+## Northbound - Level
+Install the required apps
+- Dataservice 
+- IE MQTT Connector 
+- IE Databus
+- Flow Creator 
+
+Setup the network settings
+  - Give the Northbound-Device Port 2 ip adress in range of the OT-South network, for example 192.168.2.10 
+  - Give the Northbound-Device Port 1 ip adress in range of the South-North network, for example 192.168.1.11
