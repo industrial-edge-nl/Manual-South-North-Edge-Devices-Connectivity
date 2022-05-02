@@ -48,14 +48,14 @@ Connecting edge devices to connect to a cloud service or do centralized dashboar
   - South-North network 192.168.1.x/24 range
   - North-Cloud network 192.168.2.x/24 range
   - Devices:
-    PLC: 
-    - 192.168.0.10
-    South Device: 
-    - port 1: 192.168.0.11
-    - port 2: 192.168.1.10
-    North Device:
-    - port 1: 192.168.1.11
-    - port 2: 192.168.2.10 
+    - PLC: 
+      - 192.168.0.10
+    - South Device: 
+      - port 1: 192.168.0.11
+      - port 2: 192.168.1.10
+    - North Device:
+      - port 1: 192.168.1.11
+      - port 2: 192.168.2.10 
 
 ## OT - Level
   Run Tia tank project on PLC SIM Advanced, or use a real PLC - Use a 1500 plc [Link Tia Portal Project](https://github.com/industrial-edge/miscellaneous#tank-application)  Or use your own project.  
