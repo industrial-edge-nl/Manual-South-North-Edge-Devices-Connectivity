@@ -1,0 +1,1 @@
+# Shopfloor to cloud connectivity
